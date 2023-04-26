@@ -26,7 +26,7 @@ export const fetchUser = () => (dispatch) => dispatch({
 export const setUserId = (userId) => (dispatch) => dispatch({
   type: SET_USER_ID,
   payload: userId
-})
+});
 
 export const login = (data, callback) => (dispatch) => dispatch({
   type: LOGIN,
@@ -53,9 +53,8 @@ export const register = (data, callback) => (dispatch) => dispatch({
   type: REGISTER,
   promise: api.post(REGISTER_API_PATH, data),
   meta: {
-    onSuccess: (res) => {
-      console.log(res);
-      showSuccessMessage(res.data.message, dispatch);
+    onSuccess: () => {
+      showSuccessMessage('Usuario registrado correctamente', dispatch);
       callback();
     },
     onFailure: (res) => {

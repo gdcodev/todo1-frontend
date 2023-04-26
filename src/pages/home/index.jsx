@@ -4,7 +4,7 @@ import withAuth from '../../hoc';
 
 const Home = () => (
   <Container>
-    HOLA
+    <h1 style={{ textAlign: 'center', fontSize: 50 }}>Bienvenido a HULK STORE</h1>
   </Container>
 );
 export default withAuth(Home);

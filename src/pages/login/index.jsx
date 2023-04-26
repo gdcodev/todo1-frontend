@@ -22,7 +22,7 @@ const LoginForm = () => {
 
   return (
     <Container>
-      <Card title="Login">
+      <Card title="Iniciar Sesión">
         <FormLogin form={form} onSubmmit={handleSubmmit} />
       </Card>
     </Container>

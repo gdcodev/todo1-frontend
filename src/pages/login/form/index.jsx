@@ -5,9 +5,11 @@ import React from 'react';
 import { Form } from 'antd';
 import PropTypes from 'prop-types';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import { getValidationRules } from '@/utils/validations';
 import Button from '@/components/button';
 import Input from '@/components/input';
+import { REGISTER_PATH } from '../../../routes/path';
 
 const { Item } = Form;
 
@@ -29,6 +31,10 @@ const FormLogin = ({ form, onSubmmit }) => (
     </Item>
     <Item>
       <Button type="primary" htmlType="submit" text="Iniciar Sesión" />
+    </Item>
+    <Item>
+      <div>No tienes cuenta?</div>
+      <Link to={REGISTER_PATH}>Registarse</Link>
     </Item>
   </Form>
 );

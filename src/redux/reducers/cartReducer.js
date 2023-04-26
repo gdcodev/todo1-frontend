@@ -1,7 +1,7 @@
 import {
   ADD_ITEM_TO_CART, CLEAN_CART, REMOVE_ITEM_TO_CART, UPDATE_ITEM_AMOUNT_TO_CART, FETCH_CARDS
 } from '../actions/types';
-import { parserCard } from "../../utils/parsers";
+import { parserCard } from '../../utils/parsers';
 import { handleAction } from '../../utils/handleAction';
 
 const initialState = {

@@ -1,6 +1,6 @@
-import { handleAction } from "../../utils/handleAction";
-import { parserProduct } from "../../utils/parsers";
-import { FETCH_PRODUCTS } from "../actions/types";
+import { handleAction } from '../../utils/handleAction';
+import { parserProduct } from '../../utils/parsers';
+import { FETCH_PRODUCTS } from '../actions/types';
 
 const initialState = {
   isLoading: false,

@@ -10,7 +10,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import Button from '../button';
 import { logout } from '../../redux/actions/app';
-import { LOGIN_PATH, ROOT_PAGE_PATH, PRODUCTS_PATH } from '../../routes/path';
+import {
+  LOGIN_PATH, ROOT_PAGE_PATH, PRODUCTS_PATH, CHECKOUT_PATH
+} from '../../routes/path';
 
 const { Header, Content } = Layout;
 const Container = ({ children }) => {
@@ -19,7 +21,7 @@ const Container = ({ children }) => {
 
   const token = localStorage.getItem('accessToken');
   const { cart } = useSelector((state) => state.cartReducer);
-  const sizePage = window.screen.width;
+  // const sizePage = window.screen.width;
   const totalItems = cart.reduce((acc, curr) => curr.amount + acc, 0);
 
   const handleLogout = () => {
@@ -48,7 +50,7 @@ const Container = ({ children }) => {
               margin: '16px 24px 16px 0',
             }}
           >
-            Logo
+            Hulk Store
           </div>
         </Link>
         {(token) && (
@@ -57,14 +59,16 @@ const Container = ({ children }) => {
           }}
           >
             <Button text="Productos" onClick={handleClickProducts} ghost />
-            <Badge count={totalItems}>
-              <Button
-                ghost
-                icon={<ShoppingCartOutlined />}
-                color="transparent"
-                onClick={handleClickCart}
-              />
-            </Badge>
+            <Link to={CHECKOUT_PATH}>
+              <Badge count={totalItems}>
+                <Button
+                  ghost
+                  icon={<ShoppingCartOutlined />}
+                  color="transparent"
+                  onClick={handleClickCart}
+                />
+              </Badge>
+            </Link>
             <Popconfirm
               placement="bottomRight"
               title="¿Desea cerrar la sesion?"

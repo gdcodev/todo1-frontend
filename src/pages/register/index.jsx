@@ -22,7 +22,7 @@ const Register = () => {
 
   return (
     <Container>
-      <Card title="Register">
+      <Card title="Registrarse">
         <FormRegister form={form} onSubmmit={handleSubmmit} />
       </Card>
     </Container>

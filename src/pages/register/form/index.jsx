@@ -14,21 +14,21 @@ const FormRegister = ({ form, onSubmmit }) => (
     <Item
       name="name"
       rules={getValidationRules('name')}
-      label="Name"
+      label="Nombre"
     >
       <Input prefix={<UserOutlined />} />
     </Item>
     <Item
       name="lastName"
-      rules={getValidationRules('Lastname')}
-      label="Lastname"
+      rules={getValidationRules('lastName')}
+      label="Apellido"
     >
       <Input prefix={<UserOutlined />} />
     </Item>
     <Item
       name="username"
-      rules={getValidationRules('Username')}
-      label="Username"
+      rules={getValidationRules('username')}
+      label="Nombre de usuario"
     >
       <Input prefix={<UserOutlined />} />
     </Item>
@@ -47,7 +47,7 @@ const FormRegister = ({ form, onSubmmit }) => (
       <Input type="password" prefix={<LockOutlined />} />
     </Item>
     <Item>
-      <Button type="primary" htmlType="submit" text="Save" />
+      <Button type="primary" htmlType="submit" text="Registrarse" />
     </Item>
   </Form>
 );
