@@ -3,10 +3,10 @@ import { Form } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../redux/actions/app';
-import Card from '../../componets/card';
+import Card from '../../components/card';
 import FormRegister from './form';
 import { LOGIN_PATH } from '../../routes/path';
-import Container from '../../componets/container';
+import Container from '../../components/container';
 
 const Register = () => {
   const navigate = useNavigate();

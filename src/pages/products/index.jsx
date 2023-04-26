@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import CardProduct from '../../componets/cardProduct';
-import Container from '../../componets/container';
+import CardProduct from '../../components/cardProduct';
+import Container from '../../components/container';
 import withAuth from '../../hoc';
 import { getProducts } from '../../redux/actions/product';
 import { DETAIL_PRODUCT_PATH } from '../../routes/path';
@@ -22,7 +22,6 @@ const Products = () => {
   return (
     <Container>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-
         {
         products.length === 0
           ? <p>No hay productos disponibles</p>

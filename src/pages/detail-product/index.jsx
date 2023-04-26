@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import Container from '../../componets/container';
-import InputNumber from '../../componets/inputNumberComponent';
+import Container from '../../components/container';
+import InputNumber from '../../components/inputNumberComponent';
 import withAuth from '../../hoc';
-import Button from '../../componets/button';
+import Button from '../../components/button';
 import { getProducts } from '../../redux/actions/product';
 import { addItemToCart } from '../../redux/actions/cart';
 import { CHECKOUT_PATH } from '../../routes/path';

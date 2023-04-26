@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../redux/actions/app';
 import FormLogin from './form';
 import { ROOT_PAGE_PATH } from '../../routes/path';
-import Card from '../../componets/card';
-import Container from '../../componets/container';
+import Card from '../../components/card';
+import Container from '../../components/container';
 
 const LoginForm = () => {
   const navigate = useNavigate();

@@ -83,7 +83,7 @@ const Container = ({ children }) => {
         )}
       </Header>
       <Content className="site-layout" style={{ padding: '0 50px' }}>
-        <div style={{ padding: 24, minHeight: 380 }}>
+        <div style={{ padding: 24 }}>
           {children}
         </div>
       </Content>

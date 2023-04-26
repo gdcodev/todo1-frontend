@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../componets/container';
+import Container from '../../components/container';
 import withAuth from '../../hoc';
 
 const Home = () => (

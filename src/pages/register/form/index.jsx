@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { getValidationRules } from '../../../utils/validations';
-import Button from '../../../componets/button';
-import Input from '../../../componets/input';
+import Button from '../../../components/button';
+import Input from '../../../components/input';
 
 const { Item } = Form;
 

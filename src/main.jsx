@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App.jsx';
 import configureStore from './redux/state/store';
-// import './index.css'
+import './index.css';
 
 const store = configureStore();
 ReactDOM.createRoot(document.getElementById('root')).render(

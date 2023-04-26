@@ -9,7 +9,7 @@ const CardProduct = ({
   title, description, image, price, onClick
 }) => (
   <Card
-    cover={<img alt={title} src={image} />}
+    cover={<img alt={title} src={image} width={280} height={280} />}
     onClick={onClick}
     style={{ width: 250, height: 400, margin: 10 }}
     data-testid="card"
