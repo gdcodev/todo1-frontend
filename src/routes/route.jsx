@@ -1,20 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LayoutContainer from '../componets/layout';
 import Home from '../pages/home';
 import Login from '../pages/login';
 import Register from '../pages/register';
-import Products from '../pages/products';
 import DetailProduct from '../pages/detail-product';
 import Checkout from '../pages/checkout';
 import {
   ROOT_PAGE_PATH,
   LOGIN_PATH,
   REGISTER_PATH,
-  PRODUCTS_PATH,
   CHECKOUT_PATH,
   DETAIL_PRODUCT_PATH,
+  PRODUCTS_PATH,
+  PAYMENT_PATH,
 } from './path';
+import Products from '../pages/products';
+import Payment from '../pages/payment';
 
 const routes = [
   {
@@ -41,17 +42,19 @@ const routes = [
     path: CHECKOUT_PATH,
     component: <Checkout />
   },
+  {
+    path: PAYMENT_PATH,
+    component: <Payment />
+  },
 ];
 const getRoutes = () => routes.map(({ path, component }) => (
   <Route path={path} element={component} key={path} />
 ));
 const RouteApp = () => (
   <BrowserRouter>
-    <LayoutContainer>
-      <Routes>
-        {getRoutes()}
-      </Routes>
-    </LayoutContainer>
+    <Routes>
+      {getRoutes()}
+    </Routes>
   </BrowserRouter>
 );
 

@@ -6,6 +6,7 @@ import { register } from '../../redux/actions/app';
 import Card from '../../componets/card';
 import FormRegister from './form';
 import { LOGIN_PATH } from '../../routes/path';
+import Container from '../../componets/container';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -20,11 +21,11 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Card title="Register">
         <FormRegister form={form} onSubmmit={handleSubmmit} />
       </Card>
-    </div>
+    </Container>
   );
 };
 

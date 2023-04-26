@@ -1,25 +1,17 @@
 import {
   LOGIN,
-  LOGOUT,
-  SET_FLASH_MESSAGE,
   SET_TOKEN,
-  SET_USER,
+  SET_USER_ID
 } from '../actions/types';
 import { handleAction } from '../../utils/handleAction';
 
 const initialState = {
-  isLoading: true,
+  isLoading: false,
   isLgged: false,
   token: null,
-  flashMessageContent: {
-    text: '',
-    type: '',
-    isVisible: false
-  },
-  user: {
-    nombre: '',
-    rol: ''
-  }
+  userId: null,
+  userRole: null,
+  userName: null
 };
 const appReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -29,24 +21,15 @@ const appReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isLgged: true,
-        token: action.tokens
+        token: action.tokens,
       };
-    case SET_USER:
-      return handleAction(state, action, {
-        failure: (prevState) => ({ ...prevState, error: payload }),
-        success: (prevState) => ({
-          ...prevState,
-          user: payload.data
-        }),
-      });
-    case SET_FLASH_MESSAGE:
+
+    case SET_USER_ID:
       return {
         ...state,
-        flashMessageContent: {
-          ...state.flashMessageContent,
-          ...action.flashMessageContent
-        }
+        userId: payload
       };
+
     case LOGIN:
       return handleAction(state, action, {
         failure: (prevState) => ({ ...prevState, error: payload }),
@@ -54,15 +37,18 @@ const appReducer = (state = initialState, action) => {
           ...prevState,
           isLgged: true,
           token: payload.data.tokens,
-          user: payload.data.user
+          // eslint-disable-next-line no-underscore-dangle
+          userId: payload.data.user._id,
+          userRole: payload.data.user.role,
+          userName: payload.data.user.name
         }),
       });
-    case LOGOUT:
-      return {
-        ...initialState,
-        isLoading: false,
-        isLgged: false
-      };
+    // case LOGOUT:
+    //   return {
+    //     ...initialState, // TODO: refactor logout
+    //     isLoading: false,
+    //     isLgged: false,
+    //   };
     default:
       return state;
   }

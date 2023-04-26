@@ -6,6 +6,7 @@ import { login } from '../../redux/actions/app';
 import FormLogin from './form';
 import { ROOT_PAGE_PATH } from '../../routes/path';
 import Card from '../../componets/card';
+import Container from '../../componets/container';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -20,11 +21,11 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Card title="Login">
         <FormLogin form={form} onSubmmit={handleSubmmit} />
       </Card>
-    </div>
+    </Container>
   );
 };
 

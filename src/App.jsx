@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken, setUser } from './redux/actions/app';
+import { setToken, setUserId } from './redux/actions/app';
 import RouteApp from './routes/route';
 import { setAuthentication } from './service/api';
 
@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
+    const userId = localStorage.getItem('userId');
     if (accessToken !== null) {
       setAuthentication(accessToken);
       dispatch(
@@ -17,7 +18,7 @@ function App() {
           accessToken,
         })
       );
-      dispatch(setUser());
+      dispatch(setUserId(userId));
     }
   }, []);
   return (

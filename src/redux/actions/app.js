@@ -1,8 +1,16 @@
-import { LOGIN_API_PATH, REGISTER_API_PATH, SET_USER_API_PATH } from '../../service/path';
 import {
-  LOGIN, LOGOUT, REGISTER, SET_TOKEN, SET_USER
+  LOGIN_API_PATH,
+  REGISTER_API_PATH,
+  FETCH_USER_PATH,
+} from '../../service/path';
+import {
+  LOGIN, LOGOUT, REGISTER, SET_TOKEN, FETCH_USER, SET_USER_ID
 } from './types';
-import { api, saveTokenAuthentication, setAuthentication } from '../../service/api';
+import {
+  api,
+  saveTokenAuthentication,
+  setAuthentication,
+} from '../../service/api';
 import { showErrorMessage, showSuccessMessage } from '../../utils/utils';
 
 export const setToken = (tokens) => (dispatch) => dispatch({
@@ -10,10 +18,15 @@ export const setToken = (tokens) => (dispatch) => dispatch({
   tokens,
 });
 
-export const setUser = () => (dispatch) => dispatch({
-  type: SET_USER,
-  promise: api.get(SET_USER_API_PATH),
+export const fetchUser = () => (dispatch) => dispatch({
+  type: FETCH_USER,
+  promise: api.get(FETCH_USER_PATH),
 });
+
+export const setUserId = (userId) => (dispatch) => dispatch({
+  type: SET_USER_ID,
+  payload: userId
+})
 
 export const login = (data, callback) => (dispatch) => dispatch({
   type: LOGIN,
@@ -21,14 +34,15 @@ export const login = (data, callback) => (dispatch) => dispatch({
   meta: {
     onSuccess: (res) => {
       setAuthentication(res.data.tokens.accessToken);
+      localStorage.setItem('userId', res.data.user._id);
       saveTokenAuthentication(res.data.tokens, res.data.user.rol);
       dispatch(setToken(res.data.tokens));
       callback();
     },
     onFailure: (res) => {
       showErrorMessage(res.response.data.message, dispatch);
-    }
-  }
+    },
+  },
 });
 
 export const logout = () => (dispatch) => dispatch({
@@ -46,6 +60,6 @@ export const register = (data, callback) => (dispatch) => dispatch({
     },
     onFailure: (res) => {
       showErrorMessage(res.response.data.message, dispatch);
-    }
-  }
+    },
+  },
 });

@@ -1,6 +1,15 @@
 export const SET_TOKEN = 'SET_TOKEN';
-export const SET_USER = 'SET_USER';
+export const SET_USER_ID = 'SET_USER_ID';
+export const FETCH_USER = 'FETCH_USER';
 export const SET_FLASH_MESSAGE = 'SET_FLASH_MESSAGE';
 export const LOGIN = 'LOGIN';
 export const REGISTER = 'REGISTER';
 export const LOGOUT = 'LOGOUT';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const FETCH_PRODUCT_BY_ID = 'FETCH_PRODUCT_BY_ID';
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
+export const REMOVE_ITEM_TO_CART = 'REMOVE_ITEM_TO_CART';
+export const UPDATE_ITEM_AMOUNT_TO_CART = 'UPDATE_ITEM_AMOUNT_TO_CART';
+export const CLEAN_CART = 'CLEAN_CART';
+export const CREATE_SALE = 'CREATE_SALE';
+export const FETCH_CARDS = 'FETCH_CARDS';
